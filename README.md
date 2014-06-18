@@ -38,3 +38,7 @@
   - [ ] .Canvas.setDoneLoading()
   - [ ] .Canvas.startTimer()
   - [ ] .Canvas.stopTimer()
+
+
+# TODO
+* remove test helper dependencies.
