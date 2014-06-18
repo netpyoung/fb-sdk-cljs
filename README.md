@@ -1,10 +1,12 @@
+
 # facebook sdk for cljs
+
+* [![Clojars Project](http://clojars.org/fb-sdk-cljs/latest-version.svg)](http://clojars.org/fb-sdk-cljs)
 
 * [WIP] test code.
 
 * https://developers.facebook.com/docs/javascript/
 * http://www.dotnetwise.com/Code/Externs/
-
 
 ## Progress
 
