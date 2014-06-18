@@ -29,15 +29,22 @@
     :cljsbuild
     {:builds
      [{:id "dev"
-       :source-paths ["src" "dev/cljs"]
-       :compiler {
-                  :output-to "resources/public/fb-sdk-cljs.js"
+       :source-paths ["src/main" "dev/cljs"]
+       :compiler {:output-to "resources/public/fb-sdk-cljs.js"
                   :output-dir "resources/public/out/"
                   :optimizations :none
+                  :pretty-print true
                   :static-fns false
-                  :source-map true}}]
-     }
-    }
+                  :source-map true}}
 
-   }
-  )
+      {:id "adv"
+       :source-paths ["src/main" "src/test"]
+       :compiler {:output-to "resources/public/fb-sdk-cljs.js"
+                  :optimizations :advanced
+                  :pretty-print true
+                  :static-fns true}}
+      ] ;; builds
+     } ;; cljsbuild
+    } ;; dev
+   } ;; profiles
+  ) ;; projects

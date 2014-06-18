@@ -4,13 +4,25 @@
 ;; ref: https://developers.facebook.com/docs/javascript/
 
 
+;; Privates.
+(defn- wrap-keywordize-key [func]
+  (fn [resp]
+    (-> resp
+        (js->clj :keywordize-keys true)
+        (func))))
+
+
+;; Publics.
 (defn load-sdk [fb-async-init-cb]
 
   (let [doc js/document uid "fb-sdk-cljs"]
+
     (when-not (. doc (getElementById uid))
 
-      ;; (-> js/window (.-fbAsyncInit) (set! fb-async-init-cb))
+      ;; register onload callback.
+      (-> js/window (.-fbAsyncInit) (set! fb-async-init-cb))
 
+      ;; attatch facebook-sdk.
       (let [script (. doc (createElement "script"))]
         (-> script (.-id)    (set! uid))
         (-> script (.-async) (set! true))
@@ -21,7 +33,7 @@
 
           (.insertBefore parent script fst-js))))))
 
-
+;;
 ;; Facebook APIs.
 
 ;; https://developers.facebook.com/docs/javascript/reference/FB.init/v2.0
@@ -30,10 +42,17 @@
       (js/FB.init)))
 
 
+;; https://developers.facebook.com/docs/javascript/reference/FB.ui
+(defn ui [params resp-cb]
+  (js/FB.ui
+   (clj->js params)
+   (wrap-keywordize-key resp-cb)))
+
+
 ;; https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
-(defn get-login-status [resp-fn]
+(defn get-login-status [resp-cb]
   (js/FB.getLoginStatus
-   (fn [resp] (resp-fn (js->clj resp :keywordize-keys true)))))
+   (wrap-keywordize-key resp-cb)))
 
 
 ;; https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
@@ -42,31 +61,5 @@
      (login resp-cb {}))
   ([resp-cb opts]
      (js/FB.login
-      (fn [resp] (resp-cb (js->clj resp :keywordize-keys true)))
+      (wrap-keywordize-key resp-cb)
       (clj->js opts))))
-
-
-(defn fb-async-init []
-  (init {:appId "516615825130703"
-         :status true
-         :cookies true
-         :xfbml true
-         })
-  (get-login-status
-   (fn [response]
-     (case (:status response)
-       "connected"
-       (println "connected")
-
-       "not_authorized"
-       (login (fn [x] (println "not-" x)) {:scope "email"})
-
-       (login (fn [x] (def FF x)
-                (println "else-" x)) {:scope "email"})
-       )))
-  )
-
-
-(load-sdk fb-async-init)
-
-(fb-async-init)
