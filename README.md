@@ -3,6 +3,8 @@
 
 * [![Clojars Project](http://clojars.org/fb-sdk-cljs/latest-version.svg)](http://clojars.org/fb-sdk-cljs)
 
+* [![Dependencies Status](http://jarkeeper.com/netpyoung/fb-sdk-cljs/status.png)](http://jarkeeper.com/netpyoung/fb-sdk-cljs)
+
 * [WIP] test code.
 
 * https://developers.facebook.com/docs/javascript/
