@@ -1,0 +1,2 @@
+{:require  [fb-sdk-cljs.core]
+ :compiler-options {:asset-path "js/core.out"}}

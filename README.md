@@ -66,3 +66,6 @@
 
 # TODO
 * remove test helper dependencies.
+
+# REF.
+* https://www.linode.com/docs/security/ssl/how-to-provide-encrypted-access-to-resources-using-ssl-certificated-on-nginx

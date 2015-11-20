@@ -37,7 +37,7 @@
 ;; Facebook APIs.
 
 (defn init
-  "ref: https://developers.facebook.com/docs/javascript/reference/FB.init/v2.0"
+  "ref: https://developers.facebook.com/docs/javascript/reference/FB.init"
   [params]
   (-> (clj->js params)
       (js/FB.init)))
@@ -66,7 +66,7 @@
 
 
 (defn login
-  "ref: https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0"
+  "ref: https://developers.facebook.com/docs/reference/javascript/FB.login"
   ([resp-cb]
      (login resp-cb {}))
   ([resp-cb opts]
@@ -90,7 +90,7 @@
 
 
 (defn Event:subscribe
-  "ref: https://developers.facebook.com/docs/reference/javascript/FB.Event.subscribe/v2.0"
+  "ref: https://developers.facebook.com/docs/reference/javascript/FB.Event.subscribe"
   [event cb]
   (. js/FB.Event (subscribe event cb)))
 

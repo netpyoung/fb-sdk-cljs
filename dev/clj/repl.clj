@@ -12,8 +12,8 @@
 
 
 (defroutes router
-  (GET "/" [] (io/resource "public/index.html"))
-  (POST "/" [] (io/resource "public/index.html"))
+  (GET "/" [] (io/resource "resources/index.html"))
+  (POST "/" [] (io/resource "resources/index.html"))
 
   (route/resources "/")
   (route/not-found "Page not found"))
