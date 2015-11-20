@@ -1,13 +1,3 @@
-pom.xml
-*jar
-/lib/
-/classes/
+/target
+/.nrepl-port
 /out/
-/target/
-.lein-deps-sum
-.lein-repl-history
-.lein-plugins/
-.nrepl-port
-.repl/
-out/
-/resources/public/fb-sdk-cljs.js
