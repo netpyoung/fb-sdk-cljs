@@ -46,7 +46,7 @@
 
 (deftask production []
   (task-options! cljs {:optimizations :advanced})
-  (comp (build-jar) (push)))
+  identity)
 
 (deftask development []
   (task-options! cljs {:optimizations :none :source-map true})
