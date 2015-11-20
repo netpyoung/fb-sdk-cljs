@@ -1,7 +1,7 @@
 # facebook sdk for cljs
 * facebook javascript sdk wrapper for clojurescript
 
-* [![Clojars Project](http://clojars.org/fb-sdk-cljs/latest-version.svg)](http://clojars.org/fb-sdk-cljs)
+* [![Clojars Project](http://clojars.org/netpyoung/fb-sdk-cljs/latest-version.svg)](http://clojars.org/netpyoung/fb-sdk-cljs)
 
 * [![Dependencies Status](http://jarkeeper.com/netpyoung/fb-sdk-cljs/status.png)](http://jarkeeper.com/netpyoung/fb-sdk-cljs)
 
