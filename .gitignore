@@ -1,3 +1,5 @@
 /target
 /.nrepl-port
 /out/
+\#*
+.\#*

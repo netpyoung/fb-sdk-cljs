@@ -35,9 +35,7 @@
 
 (deftask build []
   (comp (speak)
-
-        (cljs)
-        ))
+        (cljs)))
 
 (deftask run []
   (comp (serve)
@@ -48,11 +46,10 @@
 
 (deftask production []
   (task-options! cljs {:optimizations :advanced})
-  identity)
+  (comp (build-jar) (push)))
 
 (deftask development []
-  (task-options! cljs {:optimizations :none :source-map true}
-)
+  (task-options! cljs {:optimizations :none :source-map true})
   identity)
 
 (deftask dev
