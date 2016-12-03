@@ -26,6 +26,10 @@
      (fb/login #(.log js/console "else-" %) {:scope "email"}))))
 ```
 
+## Known bug
+* https://github.com/netpyoung/fb-sdk-cljs/issues/2
+
+
 ## example.
 please check this file - https://github.com/netpyoung/fb-sdk-cljs/blob/master/test/fb_sdk_cljs/api_test.cljs
 
