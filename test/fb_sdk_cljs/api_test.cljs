@@ -17,10 +17,10 @@
    (fn [response]
      (case (:status response)
        "connected"
-       (.log js/console "connected")
+       (js/console.log "connected")
 
        ;; else
-       (fb/login #(.log js/console "else-" %) {:scope "email"}))))
+       (fb/login #(js/console.log "else-" %) {:scope "email"}))))
 
   ;; ui
   (fb/ui {:method "feed"
